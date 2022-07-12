@@ -4,9 +4,9 @@
 package tennis.kata.accelerate
 
 class Player {
-    var points: String = "Love"
+    var points: String = "40"
 
-    fun increaseScore() {
+    fun increaseScore(rivalPoints: String) {
         if (points == "Love") {
             points = "15"
         }
@@ -17,7 +17,11 @@ class Player {
             points = "40"
         }
         else if(points == "40"){
-            points = "Win"
+            if (rivalPoints == "40"){
+                points = "advantage"
+            } else if(rivalPoints != "40"){
+                points = "WIN"
+            }
         }
     }
 
@@ -25,7 +29,8 @@ class Player {
 
 fun main() {
     var player1 = Player()
+    var player2 = Player()
     println(player1.points)
-    player1.increaseScore()
+    player1.increaseScore("30")
     println(player1.points)
 }
