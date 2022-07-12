@@ -19,8 +19,10 @@ class Player {
         else if(points == "40"){
             if (rivalPoints == "40"){
                 points = "advantage"
-            } else if(rivalPoints != "40"){
+            } else if(rivalPoints != "40" && rivalPoints != "advantage"){
                 points = "WIN"
+            } else if(rivalPoints == "advantage"){
+                points = "40"
             }
         }
     }
@@ -29,8 +31,7 @@ class Player {
 
 fun main() {
     var player1 = Player()
-    var player2 = Player()
     println(player1.points)
-    player1.increaseScore("30")
+    player1.increaseScore("40")
     println(player1.points)
 }
