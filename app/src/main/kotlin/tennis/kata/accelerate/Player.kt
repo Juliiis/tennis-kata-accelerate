@@ -4,10 +4,21 @@
 package tennis.kata.accelerate
 
 class Player {
-    var points: Int = 0
+    var points: String = "Love"
 
-    fun increaseScore(playerScore: Int) {
-        if (playerScore == 30) points += 10
+    fun increaseScore() {
+        if (points == "Love") {
+            points = "15"
+        }
+        else if(points == "15") {
+            points = "30"
+        }
+        else if(points == "30"){
+            points = "40"
+        }
+        else if(points == "40"){
+            points = "Win"
+        }
     }
 
     val greeting: String
