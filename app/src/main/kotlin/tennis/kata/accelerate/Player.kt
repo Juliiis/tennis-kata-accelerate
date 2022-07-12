@@ -6,7 +6,7 @@ package tennis.kata.accelerate
 class Player {
     var points: String = "40"
 
-    fun increaseScore(rivalPoints: String) {
+    fun increaseScore(rivalPlayer: Player) {
         if (points == "Love") {
             points = "15"
         }
@@ -17,12 +17,13 @@ class Player {
             points = "40"
         }
         else if(points == "40"){
-            if (rivalPoints == "40"){
+            if (rivalPlayer.points == "40"){
                 points = "advantage"
-            } else if(rivalPoints != "40" && rivalPoints != "advantage"){
+            } else if(rivalPlayer.points != "40" && rivalPlayer.points != "advantage"){
                 points = "WIN"
-            } else if(rivalPoints == "advantage"){
+            } else if(rivalPlayer.points == "advantage"){
                 points = "40"
+                rivalPlayer.points = "40"
             }
         }
     }
@@ -31,7 +32,11 @@ class Player {
 
 fun main() {
     var player1 = Player()
-    println(player1.points)
-    player1.increaseScore("40")
-    println(player1.points)
+    var player2 = Player()
+    player2.points = "advantage"
+    println("player 1 initial points: " + player1.points)
+    println("player 2 initial points: " + player2.points)
+    player1.increaseScore(player2)
+    println("player 1 points after scoring: " + player1.points)
+    println("player 2 points after scoring: " + player2.points)
 }
