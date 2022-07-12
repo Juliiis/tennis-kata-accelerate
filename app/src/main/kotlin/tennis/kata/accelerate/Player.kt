@@ -21,12 +21,11 @@ class Player {
         }
     }
 
-    val greeting: String
-        get() {
-            return "Hello World!"
-        }
 }
 
 fun main() {
-    println(Player().greeting)
+    var player1 = Player()
+    println(player1.points)
+    player1.increaseScore()
+    println(player1.points)
 }
